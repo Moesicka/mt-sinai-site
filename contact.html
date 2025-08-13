@@ -107,151 +107,98 @@
     </div>
   </section>
 
-  <!-- Contact Information -->
 <section class="py-16 bg-gray-50">
   <div class="max-w-4xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
       <p class="text-lg text-gray-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
     </div>
-    
+
     <div class="bg-white rounded-lg shadow-lg p-8">
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
-        <!-- Hidden fields for Netlify -->
-        <input type="hidden" name="form-name" value="contact">
-<p class="hidden" aria-hidden="true">
-  <label>Don't fill this out if you're human:
-    <input name="bot-field" tabindex="-1" autocomplete="off">
-  </label>
-</p>
-        
-        <!-- Row 1: First Name & Last Name -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">
-              First Name *
-            </label>
-<input 
-  id="firstName" 
-  name="firstName" 
-  type="text" 
-  required 
-  aria-required="true"
-  autocomplete="given-name"
-  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-  placeholder="Enter your first name"
->
-          </div>
-          <div>
-            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">
-              Last Name *
-            </label>
-<input 
-  id="lastName"  
-  name="lastName"  
-  type="text"  
-  required  
-  aria-required="true"
-  autocomplete="family-name"
-  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-  placeholder="Enter your last name"
->
-          </div>
-        </div>
-        
-        <!-- Row 2: Email & Phone -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-              Email Address *
-            </label>
-<input 
-  id="email"     
-  name="email"     
-  type="email"     
-  required     
-  aria-required="true"
-  autocomplete="email"
-  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-  placeholder="your.email@example.com"
->
-          </div>
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number
-            </label>
-<input 
-  id="phone"     
-  name="phone"     
-  type="tel"     
-  inputmode="tel" 
-  autocomplete="tel"
-  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-  placeholder="(555) 123-4567"
->
-          </div>
-        </div>
-        
-        <!-- Subject Dropdown -->
-        <div>
-          <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">
-            Subject *
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden" aria-hidden="true">
+          <label>Don't fill this out if you're human:
+            <input name="bot-field" tabindex="-1" autocomplete="off">
           </label>
-          <select 
-            id="subject" 
-            name="subject" 
-            required 
-            aria-required="true"
-            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white"
-          >
+        </p>
+
+        <!-- first/last -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+            <input id="firstName" name="firstName" type="text" required aria-required="true" autocomplete="given-name"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+          </div>
+          <div>
+            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+            <input id="lastName" name="lastName" type="text" required aria-required="true" autocomplete="family-name"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+          </div>
+        </div>
+
+        <!-- email/phone -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+            <input id="email" name="email" type="email" required aria-required="true" autocomplete="email"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+          </div>
+        </div>
+
+        <!-- subject -->
+        <div>
+          <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+          <select id="subject" name="subject" required aria-required="true"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
             <option value="">Please select a subject</option>
             <option value="general-inquiry">General Inquiry</option>
-            <option value="appointment">Schedule Appointment</option>
-            <option value="patient-services">Patient Services</option>
-            <option value="billing">Billing Question</option>
-            <option value="medical-records">Medical Records</option>
-            <option value="feedback">Feedback or Complaint</option>
-            <option value="emergency">Emergency (Call 911 for immediate help)</option>
+            <option value="visit">Planning a Visit</option>
+            <option value="membership">Church Membership</option>
+            <option value="prayer-request">Prayer Request</option>
+            <option value="bible-study">Bible Study Information</option>
+            <option value="volunteer">Volunteer Opportunities</option>
+            <option value="pastoral-care">Pastoral Care</option>
+            <option value="events">Events & Programs</option>
             <option value="other">Other</option>
           </select>
         </div>
-        
-        <!-- Message Textarea -->
+
+        <!-- message -->
         <div>
-          <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
-            Message *
-          </label>
-          <textarea 
-            id="message" 
-            name="message" 
-            rows="6" 
-            required 
-            aria-required="true"
-            class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"
-            placeholder="Please describe how we can help you..."
-          ></textarea>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+          <textarea id="message" name="message" rows="6" required aria-required="true"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"></textarea>
         </div>
-        
-        <!-- Submit Button -->
+
         <div class="text-center pt-4">
-          <button 
-            type="submit" 
-            class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-md shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-md shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
             Send Message
           </button>
         </div>
-        
-        <!-- Form Notice -->
+
         <div class="text-center pt-2">
-          <p class="text-sm text-gray-500">
-            * Required fields. We'll respond to your message within 24-48 hours.
-          </p>
+          <p class="text-sm text-gray-500">* Required fields. We'll respond to your message within 24-48 hours.</p>
         </div>
       </form>
     </div>
   </div>
-</section> 
+</section>
+
+<!-- Hidden form for Netlify detection fallback -->
+<form name="contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="subject" />
+  <textarea name="message"></textarea>
+</form>
 
 <!-- Weekly Schedule -->
   <section class="py-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/service.jpg');">
