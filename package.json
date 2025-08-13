@@ -1,3 +1,4 @@
+// package.json
 {
   "name": "mt-sinai-site",
   "private": true,
@@ -5,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npx tailwindcss -i ./styles.css -o ./styles.css --minify",
     "preview": "vite preview"
   },
   "devDependencies": {
