@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  @apply text-gray-900;
+}
+
+/* Font family utilities */
+.font-playfair { 
+  font-family: 'Playfair Display', serif; 
+}
+
+.font-inter { 
+  font-family: 'Inter', sans-serif; 
+}
+
+/* Navigation utilities */
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+#contact-menu {
+  z-index: 1000;
+}
+
+/* Image scrolling animation */
+.image-scroll-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.scrolling-image {
+  width: 120%;
+  height: 384px; /* h-96 */
+  object-fit: cover;
+  animation: slowScroll 15s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (min-width: 1024px) {
+  .scrolling-image {
+    height: 500px; /* lg:h-[500px] */
+  }
+}
+
+@keyframes slowScroll {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-8%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause animation on hover */
+.image-scroll-container:hover .scrolling-image {
+  animation-play-state: paused;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scrolling-image {
+    animation: none;
+    width: 100%;
+  }
+}
+input, select, textarea {
+  border: 1px solid #d1d5db !important;
+  background-color: white !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}

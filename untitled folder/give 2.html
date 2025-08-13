@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Support Mount Sinai Deliverance Temple through your generous giving. Help us reach the lost and serve our community." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="./dist/styles.css" />
+
+  <title>Give - MTSD</title>
+</head>
+
+<body class="font-inter text-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <img src="public/assets/mtsinai-logo.png" alt="Church Logo" class="h-10 w-auto" />
+          <span class="text-xl font-bold text-gray-900">MTSD</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+          <a href="give.html" class="text-blue-600 font-semibold">Give</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-700">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-2 space-y-1">
+        <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+        <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+        <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+        <a href="give.html" class="block py-2 text-blue-600 font-semibold">Give</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('public/assets/give.jpg');">
+    <div class="absolute inset-0 flex items-center justify-center pt-20">
+      <div class="text-center text-white px-4 max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold font-playfair mb-6">Give</h1>
+        <p class="text-xl md:text-2xl font-light italic opacity-90">
+          "Give, and it will be given to you. A good measure, pressed down, shaken together and running over."
+        </p>
+        <p class="text-lg md:text-xl mt-2 opacity-75">- Luke 6:38</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ways to Give Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Ways to Give</h2>
+        <p class="text-lg text-gray-600">Your generosity helps us fulfill our mission to reach the lost at any cost</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
+          <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-credit-card text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">Online Giving</h3>
+          <p class="text-gray-600 mb-6">Give securely online with your credit card, debit card, or bank transfer. Set up one-time or recurring donations.</p>
+          <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold">
+            Give Online
+          </button>
+        </div>
+        
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
+          <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-church text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">In-Person Giving</h3>
+          <p class="text-gray-600 mb-6">Bring your tithes and offerings during our Sunday worship service or any time you visit our church.</p>
+          <a href="contact.html" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block">
+            Visit Us
+          </a>
+        </div>
+        
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
+          <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-envelope text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">Mail Your Gift</h3>
+          <p class="text-gray-600 mb-6">Send your check or money order to our church address. Make checks payable to Mount Sinai Deliverance Temple.</p>
+          <div class="text-sm text-gray-600 bg-gray-50 p-4 rounded-md">
+            <strong>Mail to:</strong><br>
+            Mount Sinai Deliverance Temple<br>
+            1406 Wilbur Jones Road<br>
+            Fuquay-Varina, NC 27526
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Your Impact</h2>
+        <p class="text-lg text-gray-600">See how your generous giving makes a difference in our community and beyond</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-users text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Community Outreach</h3>
+          <p class="text-gray-600">Supporting families in need with food, clothing, and essential resources.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Youth Programs</h3>
+          <p class="text-gray-600">Investing in the next generation through education and mentorship programs.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-globe text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Missions</h3>
+          <p class="text-gray-600">Spreading the gospel locally and around the world through mission work.</p>
+        </div>
+        
+        <div class="text-center">
+          <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-building text-blue-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-900">Church Operations</h3>
+          <p class="text-gray-600">Maintaining our facilities and supporting our ministry operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripture Section -->
+  <section class="py-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('public/assets/worship.jpg');">
+    <div class="max-w-6xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8">Biblical Giving</h2>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-blue-600 bg-opacity-20 backdrop-blur-sm p-6 rounded-lg border border-blue-300">
+          <i class="fas fa-heart text-3xl mb-4 text-blue-200"></i>
+          <h3 class="text-xl font-semibold mb-3">Cheerful Giving</h3>
+          <p class="text-sm opacity-90">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." - 2 Corinthians 9:7</p>
+        </div>
+        <div class="bg-blue-600 bg-opacity-20 backdrop-blur-sm p-6 rounded-lg border border-blue-300">
+          <i class="fas fa-seedling text-3xl mb-4 text-blue-200"></i>
+          <h3 class="text-xl font-semibold mb-3">Sowing & Reaping</h3>
+          <p class="text-sm opacity-90">"Remember this: Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously." - 2 Corinthians 9:6</p>
+        </div>
+        <div class="bg-blue-600 bg-opacity-20 backdrop-blur-sm p-6 rounded-lg border border-blue-300">
+          <i class="fas fa-gift text-3xl mb-4 text-blue-200"></i>
+          <h3 class="text-xl font-semibold mb-3">First Fruits</h3>
+          <p class="text-sm opacity-90">"Honor the Lord with your wealth, with the firstfruits of all your crops; then your barns will be filled to overflowing." - Proverbs 3:9-10</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+      <h3 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Partner With Us</h3>
+      <p class="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+        Your generous giving helps us reach the lost, serve our community, and advance God's kingdom. 
+        Thank you for being a faithful partner in ministry.
+      </p>
+      <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex justify-center">
+        <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg">
+          Give Now
+        </button>
+        <a href="contact.html" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-200 font-semibold inline-block">
+          Questions About Giving?
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="/assets/mtsinai-logo.png" alt="Church Logo" class="h-8 w-auto" />
+            <span class="text-xl font-bold">MTSD</span>
+          </div>
+          <p class="text-gray-300">Mount Sinai Deliverance Temple - Reaching the lost at any cost through the gospel of Jesus Christ.</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
+          <div class="space-y-3 text-gray-300">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-3 mt-1 text-blue-400"></i>
+              <span>1406 Wilbur Jones Road<br>Fuquay-Varina, NC 27526</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-3 text-blue-400"></i>
+              <span>Prayer Line: 508-924-2145</span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors">About Us</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Prayer Request</a>
+            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Give</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/main.js"></script>
+</body>
+</html>

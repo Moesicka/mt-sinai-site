@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Learn about the leadership, mission, and heart of Mount Sinai Deliverance Temple in Fuquay-Varina, NC." />
+  <meta property="og:title" content="About Us - Mount Sinai Deliverance Temple" />
+  <meta property="og:image" content="/assets/mtsinai-logo.png" />
+  <meta property="og:description" content="Discover who we are and meet our pastor, a true servant leader." />
+  <meta property="og:url" content="https://mtsinaidemo.netlify.app/about.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon and Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" type="image/x-icon">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./dist/styles.css" />
+
+  <title>About Us - MTSD - Mount Sinai Deliverance Temple</title>
+</head>
+
+<body class="font-inter text-gray-900">
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-3">
+          <img src="public/assets/mtsinai-logo.png" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" />
+          <span class="text-xl font-bold text-gray-900">MTSD</span>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+          <a href="about.html" class="text-blue-600 font-semibold">About</a>
+          
+          <!-- Contact Dropdown - Fixed Version -->
+          <div class="relative" id="contact-dropdown">
+            <button 
+              class="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors focus:outline-none" 
+              id="contact-button"
+              aria-expanded="false"
+            >
+              Contact <i class="fas fa-chevron-down text-xs transition-transform" id="contact-chevron"></i>
+            </button>
+            <div 
+              class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-40 border left-0 top-full" 
+              id="contact-menu"
+            >
+              <a href="contact.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Contact Us</a>
+              <a href="prayer.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Prayer Request</a>
+            </div>
+          </div>
+          
+          <a href="give.html" class="text-gray-700 hover:text-blue-600 transition-colors">Give</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-700 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+      <div class="px-4 py-2 space-y-1">
+        <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+        <a href="about.html" class="block py-2 text-blue-600 font-semibold">About</a>
+        
+        <!-- Mobile Contact Section -->
+        <div class="py-2">
+          <button 
+            id="mobile-contact-btn" 
+            class="flex items-center justify-between w-full text-gray-700 hover:text-blue-600 focus:outline-none"
+          >
+            <span>Contact</span>
+            <i class="fas fa-chevron-down text-xs transition-transform" id="mobile-contact-chevron"></i>
+          </button>
+          <div id="mobile-contact-menu" class="hidden pl-4 mt-2 space-y-1">
+            <a href="contact.html" class="block py-2 text-gray-600 hover:text-blue-600">Contact Us</a>
+            <a href="prayer.html" class="block py-2 text-gray-600 hover:text-blue-600">Prayer Request</a>
+          </div>
+        </div>
+        
+        <a href="give.html" class="block py-2 text-gray-700 hover:text-blue-600">Give</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('public/assets/joinhands.png');">
+    <div class="absolute inset-0 flex items-center justify-center pt-20">
+      <div class="text-center text-white px-4 max-w-4xl">
+        <!-- Page Title -->
+        <div class="mb-8">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-6">
+            About Us
+          </h1>
+          <p class="text-xl md:text-2xl font-light italic opacity-90">
+            "Go ye into all the world, and preach the gospel to every creature."
+          </p>
+          <p class="text-lg md:text-xl mt-2 opacity-75">
+            - Mark 16:15
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Who We Are Section with Parallax Background -->
+<section class="py-16 bg-gray-50 relative">
+  <!-- Elegant Flowing Wave Divider -->
+  <div class="absolute top-0 left-0 w-full h-20 bg-white">
+    <svg class="absolute bottom-0 w-full h-20" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,120 C200,40 400,40 600,60 C800,80 1000,80 1200,60 L1200,0 L0,0 Z" fill="#f9fafb"></path>
+    </svg>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-4 relative z-10 pt-12">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Who We Are</h2>
+      <p class="text-lg text-gray-600">Mount Sinai Holiness Deliverance Temple</p>
+    </div>
+    
+    <!-- Parallax Background Section -->
+    <div class="relative bg-cover bg-center bg-fixed rounded-2xl overflow-hidden shadow-2xl" 
+         style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('public/assets/who.png'); min-height: 500px;">
+      
+      <div class="absolute inset-0 flex items-center justify-center p-8">
+        <div class="text-center text-white max-w-4xl">
+          <!-- Optional decorative element -->
+          <div class="w-16 h-1 bg-gradient-to-r from-blue-400 to-blue-300 mx-auto mb-8"></div>
+          
+          <p class="text-xl md:text-2xl font-light leading-relaxed">
+            We, Mount Sinai Holiness Deliverance Temple, are a witness for Jesus Christ by preaching and teaching the gospel to train, develop, and equip believers for advancing the kingdom of God through worship, service, fellowship, outreach, and discipleship.
+          </p>
+          
+          <!-- Optional call-to-action -->
+          <div class="mt-8">
+            <a href="contact.html" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg">
+              Join Our Family
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Extra spacing for floating card -->
+<div class="h-32"></div>
+<!-- Extra spacing for floating card - add this after the section -->
+<div class="h-32"></div>          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Pastor Section -->
+  <section class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gray-100 p-6 rounded">
+    <img src="public/assets/ourpastor.jpg" alt="Our Pastor" class="rounded shadow-lg" />
+    <div>
+      <h2 class="text-3xl font-semibold mb-4">Our Pastor</h2>
+      <p class="text-lg mb-4">
+        Our pastor has dedicated the last 25 years to guiding and uplifting the congregation with wisdom,
+        compassion, and unwavering faith. Married to her beloved husband Gerome, they share a joyful and bustling family
+        life with their three wonderful children.
+      </p>
+      <p class="text-lg">
+        Inspired by the teachings of Jesus Christ, her ministry embodies love in action, reaching out to those
+        in need with practical support and spiritual guidance. Her efforts not only provide relief to the struggling but
+        also build a robust community rooted in kindness and understanding. Through her leadership, countless lives have
+        been touched and transformed, reflecting her deep commitment to living out Christ's message in everyday life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 relative">
+    <!-- Elegant Curved Wave Divider -->
+    <div class="absolute top-0 left-0 w-full">
+      <svg class="w-full h-20" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C150,80 350,80 500,60 C650,40 850,40 1000,60 C1100,70 1150,80 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+    
+    <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="/assets/mtsinai-logo.png" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" />
+            <span class="text-xl font-bold">MTSD</span>
+          </div>
+          <p class="text-gray-300 leading-relaxed">
+            Mount Sinai Deliverance Temple - Reaching the lost at any cost through the gospel of Jesus Christ.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
+          <div class="space-y-3 text-gray-300">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-3 mt-1 text-blue-400"></i>
+              <span>1406 Wilbur Jones Road<br>Fuquay-Varina, NC 27526</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-3 text-blue-400"></i>
+              <span>Prayer Line: 508-924-2145</span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Contact</a>
+            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Prayer Request</a>
+            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Give</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.
+        </p>
+        
+        <!-- Social Media Links -->
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-x-twitter text-xl"></i>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-tiktok text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load main.js for navigation functionality -->
+  <script src="src/main.js"></script>
+</body>
+</html>
