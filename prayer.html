@@ -170,17 +170,25 @@
       <!-- Form Side -->
       <div class="order-1 lg:order-2">
         <div class="bg-white rounded-lg shadow-xl p-8 border">
-          <form class="space-y-6" netlify>
+          <form name="prayer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
+            <!-- Hidden fields for Netlify -->
+            <input type="hidden" name="form-name" value="prayer-request" />
+            <p class="hidden" aria-hidden="true">
+              <label>Don't fill this out if you're human:
+                <input name="bot-field" tabindex="-1" autocomplete="off">
+              </label>
+            </p>
+
             <!-- Name Fields -->
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required 
+                <input type="text" id="firstName" name="firstName" required aria-required="true" autocomplete="given-name"
                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
               </div>
               <div>
                 <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required 
+                <input type="text" id="lastName" name="lastName" required aria-required="true" autocomplete="family-name"
                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
               </div>
             </div>
@@ -189,12 +197,12 @@
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                <input type="email" id="email" name="email" required 
+                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"
                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
               </div>
               <div>
                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
-                <input type="tel" id="phone" name="phone" 
+                <input type="tel" id="phone" name="phone" autocomplete="tel"
                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
               </div>
             </div>
@@ -203,7 +211,7 @@
             <div>
               <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Prayer Category</label>
               <select id="category" name="category" 
-                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors bg-white">
                 <option value="">Please select a category (optional)</option>
                 <option value="healing">Healing & Health</option>
                 <option value="family">Family & Relationships</option>
@@ -246,14 +254,14 @@
             <!-- Prayer Request Text -->
             <div>
               <label for="prayerRequest" class="block text-sm font-medium text-gray-700 mb-2">Your Prayer Request *</label>
-              <textarea id="prayerRequest" name="prayerRequest" rows="6" required 
+              <textarea id="prayerRequest" name="prayerRequest" rows="6" required aria-required="true"
                         class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
                         placeholder="Please share your prayer request here. We are honored to pray with you and for you."></textarea>
             </div>
 
             <!-- Urgent Request Option -->
             <div class="flex items-center space-x-3">
-              <input type="checkbox" id="urgent" name="urgent" class="text-blue-600 focus:ring-blue-500 rounded">
+              <input type="checkbox" id="urgent" name="urgent" value="yes" class="text-blue-600 focus:ring-blue-500 rounded">
               <label for="urgent" class="text-sm font-medium text-gray-700 cursor-pointer">
                 This is an urgent prayer request
               </label>
@@ -262,7 +270,7 @@
             <!-- Submit Button -->
             <div class="text-center pt-6">
               <button type="submit" 
-                      class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg">
+                      class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                 <i class="fas fa-praying-hands mr-2"></i>
                 Submit Prayer Request
               </button>
@@ -276,7 +284,20 @@
     </div>
   </div>
 </section>
-  <!-- Prayer Support Section -->
+
+<!-- Hidden form for Netlify detection fallback -->
+<form name="prayer-request" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstName" />
+  <input type="text" name="lastName" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="text" name="category" />
+  <input type="text" name="privacy" />
+  <textarea name="prayerRequest"></textarea>
+  <input type="checkbox" name="urgent" />
+</form> 
+
+<!-- Prayer Support Section -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">

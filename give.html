@@ -74,7 +74,7 @@
     </div>
   </section>
 
-  <!-- Ways to Give Section -->
+<!-- Ways to Give Section -->
   <section class="py-16 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -82,18 +82,39 @@
         <p class="text-lg text-gray-600">Your generosity helps us fulfill our mission to reach the lost at any cost</p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Online Giving Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
             <i class="fas fa-credit-card text-white text-2xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-4 text-gray-900">Online Giving</h3>
-          <p class="text-gray-600 mb-6">Give securely online with your credit card, debit card, or bank transfer. Set up one-time or recurring donations.</p>
-          <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold">
+          <p class="text-gray-600 mb-6">
+            Give securely online with your credit card, debit card, or bank transfer. Set up one-time or recurring donations.
+            <span class="block mt-2 text-sm text-gray-500">Secure checkout powered by Square.</span>
+          </p>
+          <!-- TODO: Replace '#' with Square Checkout URL when available -->
+          <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block" target="_blank" rel="noopener noreferrer">
             Give Online
-          </button>
+          </a>
         </div>
         
+        <!-- Cash App Giving Card -->
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-green-600">
+          <div class="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-dollar-sign text-white text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">Cash App Giving</h3>
+          <p class="text-gray-600 mb-6">
+            Send your gift safely through Cash App using our handle below.
+            <span class="block mt-3 font-medium text-gray-800 text-lg">$jesus876</span>
+          </p>
+          <a href="https://cash.app/$jesus876" class="bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block" target="_blank" rel="noopener noreferrer" aria-label="Give via Cash App at handle $jesus876">
+            Give via Cash App
+          </a>
+        </div>
+        
+        <!-- In-Person Giving Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
             <i class="fas fa-church text-white text-2xl"></i>
@@ -105,23 +126,26 @@
           </a>
         </div>
         
+        <!-- Mail Your Gift Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
             <i class="fas fa-envelope text-white text-2xl"></i>
           </div>
           <h3 class="text-xl font-semibold mb-4 text-gray-900">Mail Your Gift</h3>
           <p class="text-gray-600 mb-6">Send your check or money order to our church address. Make checks payable to Mount Sinai Deliverance Temple.</p>
-          <div class="text-sm text-gray-600 bg-gray-50 p-4 rounded-md">
-            <strong>Mail to:</strong><br>
-            Mount Sinai Deliverance Temple<br>
-            1406 Wilbur Jones Road<br>
-            Fuquay-Varina, NC 27526
+          <div class="mt-6 text-center bg-gray-50 rounded-lg p-6 border">
+            <p class="text-sm text-gray-600 uppercase tracking-wide mb-2">Mail to:</p>
+            <p class="text-gray-800 font-medium">
+              Mount Sinai Deliverance Temple<br>
+              3908 Peppertree Place<br>
+              Raleigh, NC 27604
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
+  
   <!-- Impact Section -->
   <section class="py-20 bg-white">
     <div class="max-w-6xl mx-auto px-4">
