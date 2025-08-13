@@ -1,0 +1,15 @@
+# netlify.toml (put at repo root)
+[build]
+  command = "npm run build"
+  publish = "."
+
+# nice-to-have: prevent 404s if someone visits /contact (no .html)
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+[[redirects]]
+  from = "/prayer"
+  to = "/prayer.html"
+  status = 200
+
