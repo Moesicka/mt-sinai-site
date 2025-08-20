@@ -1,62 +1,62 @@
-# Optimized Netlify Configuration for Church Website
-# Enhanced with security headers, caching, and performance optimizations
+# Netlify config — static site served from repo root (no build step)
 
 [build]
-  command = "npm run build"
-  publish = "."
+  command = ""        # don't run any build
+  publish = "."       # serve files from the repo root
 
-# Security Headers for better protection
+############################################################
+# Security + perf headers (you can keep these as-is)
+############################################################
+
 [[headers]]
   for = "/*"
   [headers.values]
-    # Security Headers
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    # Allow your fonts/css CDNs; scripts are inline/self only here
     Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-    
-    # Performance Headers
     X-DNS-Prefetch-Control = "on"
-    
-    # Cache Control for static assets
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Specific headers for HTML files
+# HTML: shorter cache
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=3600" # 1 hour cache for HTML
+    Cache-Control = "public, max-age=3600"
 
-# Headers for images with longer cache
-[[headers]]
+# Static assets: long cache
+[[headers]]  # webp
   for = "/*.webp"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
+[[headers]]  # png
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
+[[headers]]  # jpg
   for = "/*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Headers for CSS and JS with long cache
-[[headers]]
+[[headers]]  # css
   for = "/*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
+[[headers]]  # js
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Pretty URLs and clean redirects
-[[redirects]]
+############################################################
+# Redirects (keep what you need)
+############################################################
+
+[[redirects]]  # pretty URLs
   from = "/home"
   to = "/"
   status = 301
@@ -106,7 +106,6 @@
   to = "/give.html"
   status = 301
 
-# Thank you pages
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you.html"
@@ -117,74 +116,8 @@
   to = "/thank-you.html"
   status = 301
 
-# Legacy redirects (in case you had old URLs)
-[[redirects]]
-  from = "/services"
-  to = "/#services"
-  status = 301
-
-[[redirects]]
-  from = "/worship"
-  to = "/#services"
-  status = 301
-
-# Social media and external links handling
-[[redirects]]
-  from = "/facebook"
-  to = "https://facebook.com/yourchurchpage"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/instagram"
-  to = "https://instagram.com/yourchurchpage"
-  status = 301
-  force = true
-
-# Handle form submissions (Netlify Forms)
-[[redirects]]
-  from = "/forms/contact"
-  to = "/thank-you.html"
-  status = 200
-  conditions = {Role = ["admin"]}
-
-# 404 handling - catch-all redirect
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
-
-# Edge Functions for enhanced performance (optional)
-# [[edge_functions]]
-#   function = "geolocation"
-#   path = "/api/location"
-
-# Environment variables for build (if needed)
-[build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
-
-# Plugin configuration for optimization
-[[plugins]]
-  package = "netlify-plugin-minify-html"
-  
-  [plugins.inputs]
-    contexts = ['production']
-
-# Performance and optimization settings
-[build.processing]
-  skip_processing = false
-  
-[build.processing.css]
-  bundle = true
-  minify = true
-
-[build.processing.js]
-  bundle = true
-  minify = true
-
-[build.processing.html]
-  pretty_urls = true
-
-[build.processing.images]
-  compress = true
+# Optional catch-all 404. Only keep if you actually have /404.html in root.
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404
