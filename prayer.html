@@ -3,34 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+  <!-- SEO & Social Meta -->
   <meta name="description" content="Submit a prayer request to Mount Sinai Deliverance Temple. We believe in the power of prayer and community support." />
   <meta property="og:title" content="Prayer Request - Mount Sinai Deliverance Temple" />
-  <meta property="og:image" content="assets/mtsinai-logo.png" />
+  <meta property="og:image" content="assets/og-1200x630.png" />
   <meta property="og:description" content="Let us pray with you and for you. Submit your prayer request today." />
-  <meta property="og:url" content="https://mtsinaidemo.netlify.app/prayer.html" />
+  <meta property="og:url" content="https://mtsdmain.com/prayer.html" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/og-1200x630.png" />
 
-  <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="assets/favicon_io/site.webmanifest">
-<link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
+  <!-- Favicon and Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+  <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
 
-  <!-- Fonts and Icons -->
+  <!-- Critical Resource Preloads -->
+  <link rel="preload" href="assets/prayer.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/mtsinai-logo.webp" as="image" />
+  
+  <!-- Font Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Custom Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <title>Prayer Request - MTSD - MOUNT SINAI DELIVERANCE TEMPLE</title>
-
-  <style>
-    .font-playfair { font-family: 'Playfair Display', serif; }
-    .font-inter { font-family: 'Inter', sans-serif; }
-  </style>
+  <title>Prayer Request - MTSD - Mount Sinai Deliverance Temple</title>
 </head>
 
 <body class="font-inter text-gray-900">
@@ -40,7 +47,7 @@
       <div class="flex justify-between h-16 items-center">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <img src="assets/mtsinai-logo.png" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" />
+          <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" width="40" height="40" />
           <span class="text-xl font-bold text-gray-900">MTSD</span>
         </div>
 
@@ -49,7 +56,7 @@
           <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
           <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
           
-          <!-- Contact Dropdown - Fixed Version -->
+          <!-- Contact Dropdown -->
           <div class="relative" id="contact-dropdown">
             <button 
               class="flex items-center gap-1 text-blue-600 font-semibold hover:text-blue-700 transition-colors focus:outline-none" 
@@ -108,9 +115,24 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative h-screen bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/prayer.png');">
+  <section class="relative h-screen overflow-hidden">
+    <!-- Hero Image - Now as IMG for better LCP -->
+    <img 
+      src="assets/prayer.webp" 
+      alt="People praying together in community" 
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      width="1920" 
+      height="1080"
+      priority
+      fetchpriority="high"
+    />
+    
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+    <!-- Hero Content -->
     <div class="absolute inset-0 flex items-center justify-center pt-20">
-      <div class="text-center text-white px-4 max-w-4xl">
+      <div class="text-center text-white px-4 max-w-4xl relative z-10">
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-6">
           Prayer Request
         </h1>
@@ -124,180 +146,173 @@
     </div>
   </section>
 
-<!-- Prayer Request Form Section -->
-<section class="py-20 bg-gray-50 relative">
-  <!-- Wave Divider -->
-  <div class="absolute top-0 left-0 w-full">
-    <svg class="w-full h-20" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,120 C200,40 400,40 600,60 C800,80 1000,80 1200,60 L1200,0 L0,0 Z" fill="#ffffff"></path>
-    </svg>
-  </div>
-
-  <div class="max-w-6xl mx-auto px-4 relative z-10 pt-12">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Submit Your Prayer Request</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        We believe in the power of prayer and would be honored to pray with you and for you. 
-        Share your prayer request with our church family.
-      </p>
-    </div>
-
-    <!-- Main Content Grid -->
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
-      
-      <!-- Image Side -->
-      <div class="order-2 lg:order-1">
-        <div class="bg-white rounded-lg shadow-xl p-8 border">
-          <div class="text-center mb-6">
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-4"></div>
-            <h3 class="text-2xl font-bold text-gray-900 mb-4">Prayer Changes Everything</h3>
-            <p class="text-gray-600 mb-6">We're here to stand with you in prayer</p>
-          </div>
-          
-          <div class="rounded-lg overflow-hidden shadow-lg mb-6">
-            <img src="assets/request.png" alt="Prayer request" class="w-full h-64 lg:h-80 object-cover" />
-          </div>
-          
-          <div class="text-center">
-            <p class="text-gray-700 italic mb-4">
-              "And pray in the Spirit on all occasions with all kinds of prayers and requests."
-            </p>
-            <p class="text-sm text-gray-500">- Ephesians 6:18</p>
-          </div>
-        </div>
+  <!-- Prayer Request Form Section -->
+  <section class="py-20 bg-gray-50 relative">
+    <div class="max-w-6xl mx-auto px-4 relative z-10 pt-12">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Submit Your Prayer Request</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          We believe in the power of prayer and would be honored to pray with you and for you. 
+          Share your prayer request with our church family.
+        </p>
       </div>
 
-      <!-- Form Side -->
-      <div class="order-1 lg:order-2">
-        <div class="bg-white rounded-lg shadow-xl p-8 border">
-          <form name="prayer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
-            <!-- Hidden fields for Netlify -->
-            <input type="hidden" name="form-name" value="prayer-request" />
-            <p class="hidden" aria-hidden="true">
-              <label>Don't fill this out if you're human:
-                <input name="bot-field" tabindex="-1" autocomplete="off">
-              </label>
-            </p>
-
-            <!-- Name Fields -->
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                <input type="text" id="firstName" name="firstName" required aria-required="true" autocomplete="given-name"
-                       class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
-              </div>
-              <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" required aria-required="true" autocomplete="family-name"
-                       class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
-              </div>
+      <!-- Main Content Grid -->
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        
+        <!-- Image Side -->
+        <div class="order-2 lg:order-1">
+          <div class="bg-white rounded-lg shadow-xl p-8 border">
+            <div class="text-center mb-6">
+              <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-4"></div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Prayer Changes Everything</h3>
+              <p class="text-gray-600 mb-6">We're here to stand with you in prayer</p>
             </div>
-
-            <!-- Contact Information -->
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"
-                       class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
-              </div>
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel"
-                       class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
-              </div>
+            
+            <div class="rounded-lg overflow-hidden shadow-lg mb-6">
+              <img src="assets/request.webp" alt="Prayer request" class="w-full h-64 lg:h-80 object-cover" width="400" height="320" />
             </div>
-
-            <!-- Prayer Category -->
-            <div>
-              <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Prayer Category</label>
-              <select id="category" name="category" 
-                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors bg-white">
-                <option value="">Please select a category (optional)</option>
-                <option value="healing">Healing & Health</option>
-                <option value="family">Family & Relationships</option>
-                <option value="financial">Financial Needs</option>
-                <option value="guidance">Guidance & Direction</option>
-                <option value="salvation">Salvation</option>
-                <option value="thanksgiving">Thanksgiving & Praise</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <!-- Privacy Options -->
-            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Privacy Options</h3>
-              <div class="space-y-3">
-                <label class="flex items-start space-x-3 cursor-pointer">
-                  <input type="radio" name="privacy" value="private" class="mt-1 text-blue-600 focus:ring-blue-500">
-                  <div>
-                    <span class="font-medium text-gray-900">Private Prayer Request</span>
-                    <p class="text-sm text-gray-600">Only pastoral staff will see and pray for your request</p>
-                  </div>
-                </label>
-                <label class="flex items-start space-x-3 cursor-pointer">
-                  <input type="radio" name="privacy" value="congregation" checked class="mt-1 text-blue-600 focus:ring-blue-500">
-                  <div>
-                    <span class="font-medium text-gray-900">Share with Congregation</span>
-                    <p class="text-sm text-gray-600">Your request may be shared with our church family for prayer support</p>
-                  </div>
-                </label>
-                <label class="flex items-start space-x-3 cursor-pointer">
-                  <input type="radio" name="privacy" value="first-name-only" class="mt-1 text-blue-600 focus:ring-blue-500">
-                  <div>
-                    <span class="font-medium text-gray-900">First Name Only</span>
-                    <p class="text-sm text-gray-600">Share request with congregation but only include your first name</p>
-                  </div>
-                </label>
-              </div>
-            </div>
-
-            <!-- Prayer Request Text -->
-            <div>
-              <label for="prayerRequest" class="block text-sm font-medium text-gray-700 mb-2">Your Prayer Request *</label>
-              <textarea id="prayerRequest" name="prayerRequest" rows="6" required aria-required="true"
-                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
-                        placeholder="Please share your prayer request here. We are honored to pray with you and for you."></textarea>
-            </div>
-
-            <!-- Urgent Request Option -->
-            <div class="flex items-center space-x-3">
-              <input type="checkbox" id="urgent" name="urgent" value="yes" class="text-blue-600 focus:ring-blue-500 rounded">
-              <label for="urgent" class="text-sm font-medium text-gray-700 cursor-pointer">
-                This is an urgent prayer request
-              </label>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="text-center pt-6">
-              <button type="submit" 
-                      class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                <i class="fas fa-praying-hands mr-2"></i>
-                Submit Prayer Request
-              </button>
-              <p class="text-sm text-gray-500 mt-3">
-                Your prayer request will be treated with confidentiality and care.
+            
+            <div class="text-center">
+              <p class="text-gray-700 italic mb-4">
+                "And pray in the Spirit on all occasions with all kinds of prayers and requests."
               </p>
+              <p class="text-sm text-gray-500">- Ephesians 6:18</p>
             </div>
-          </form>
+          </div>
+        </div>
+
+        <!-- Form Side -->
+        <div class="order-1 lg:order-2">
+          <div class="bg-white rounded-lg shadow-xl p-8 border">
+            <form name="prayer-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
+              <!-- Hidden fields for Netlify -->
+              <input type="hidden" name="form-name" value="prayer-request" />
+              <p class="hidden" aria-hidden="true">
+                <label>Don't fill this out if you're human:
+                  <input name="bot-field" tabindex="-1" autocomplete="off">
+                </label>
+              </p>
+
+              <!-- Name Fields -->
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" required aria-required="true" autocomplete="given-name"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                </div>
+                <div>
+                  <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" required aria-required="true" autocomplete="family-name"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                </div>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                  <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                </div>
+                <div>
+                  <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number (Optional)</label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel"
+                         class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                </div>
+              </div>
+
+              <!-- Prayer Category -->
+              <div>
+                <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Prayer Category</label>
+                <select id="category" name="category" 
+                        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors bg-white">
+                  <option value="">Please select a category (optional)</option>
+                  <option value="healing">Healing & Health</option>
+                  <option value="family">Family & Relationships</option>
+                  <option value="financial">Financial Needs</option>
+                  <option value="guidance">Guidance & Direction</option>
+                  <option value="salvation">Salvation</option>
+                  <option value="thanksgiving">Thanksgiving & Praise</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Privacy Options -->
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Privacy Options</h3>
+                <div class="space-y-3">
+                  <label class="flex items-start space-x-3 cursor-pointer">
+                    <input type="radio" name="privacy" value="private" class="mt-1 text-blue-600 focus:ring-blue-500">
+                    <div>
+                      <span class="font-medium text-gray-900">Private Prayer Request</span>
+                      <p class="text-sm text-gray-600">Only pastoral staff will see and pray for your request</p>
+                    </div>
+                  </label>
+                  <label class="flex items-start space-x-3 cursor-pointer">
+                    <input type="radio" name="privacy" value="congregation" checked class="mt-1 text-blue-600 focus:ring-blue-500">
+                    <div>
+                      <span class="font-medium text-gray-900">Share with Congregation</span>
+                      <p class="text-sm text-gray-600">Your request may be shared with our church family for prayer support</p>
+                    </div>
+                  </label>
+                  <label class="flex items-start space-x-3 cursor-pointer">
+                    <input type="radio" name="privacy" value="first-name-only" class="mt-1 text-blue-600 focus:ring-blue-500">
+                    <div>
+                      <span class="font-medium text-gray-900">First Name Only</span>
+                      <p class="text-sm text-gray-600">Share request with congregation but only include your first name</p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Prayer Request Text -->
+              <div>
+                <label for="prayerRequest" class="block text-sm font-medium text-gray-700 mb-2">Your Prayer Request *</label>
+                <textarea id="prayerRequest" name="prayerRequest" rows="6" required aria-required="true"
+                          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                          placeholder="Please share your prayer request here. We are honored to pray with you and for you."></textarea>
+              </div>
+
+              <!-- Urgent Request Option -->
+              <div class="flex items-center space-x-3">
+                <input type="checkbox" id="urgent" name="urgent" value="yes" class="text-blue-600 focus:ring-blue-500 rounded">
+                <label for="urgent" class="text-sm font-medium text-gray-700 cursor-pointer">
+                  This is an urgent prayer request
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="text-center pt-6">
+                <button type="submit" 
+                        class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                  <i class="fas fa-praying-hands mr-2"></i>
+                  Submit Prayer Request
+                </button>
+                <p class="text-sm text-gray-500 mt-3">
+                  Your prayer request will be treated with confidentiality and care.
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Hidden form for Netlify detection fallback -->
-<form name="prayer-request" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="firstName" />
-  <input type="text" name="lastName" />
-  <input type="email" name="email" />
-  <input type="tel" name="phone" />
-  <input type="text" name="category" />
-  <input type="text" name="privacy" />
-  <textarea name="prayerRequest"></textarea>
-  <input type="checkbox" name="urgent" />
-</form> 
+  <!-- Hidden form for Netlify detection fallback -->
+  <form name="prayer-request" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="category" />
+    <input type="text" name="privacy" />
+    <textarea name="prayerRequest"></textarea>
+    <input type="checkbox" name="urgent" />
+  </form> 
 
-<!-- Prayer Support Section -->
+  <!-- Prayer Support Section -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -332,7 +347,7 @@
   </section>
 
   <!-- Prayer Meeting Info -->
-  <section class="py-16 bg-cover bg-center bg-fixed relative" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/prayer.jpg');">
+  <section class="py-16 bg-cover bg-center bg-fixed relative" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/prayer-2.webp');">
     <div class="max-w-4xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Join Our Prayer Meetings</h2>
       <p class="text-lg md:text-xl mb-8 opacity-90">
@@ -356,17 +371,11 @@
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-12 relative">
-    <div class="absolute top-0 left-0 w-full">
-      <svg class="w-full h-20" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,0 C150,80 350,80 500,60 C650,40 850,40 1000,60 C1100,70 1150,80 1200,90 L1200,120 L0,120 Z" fill="#ffffff"></path>
-      </svg>
-    </div>
-    
     <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="assets/mtsinai-logo.png" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" />
+            <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" width="32" height="32" />
             <span class="text-xl font-bold">MTSD</span>
           </div>
           <p class="text-gray-300 leading-relaxed">

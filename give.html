@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Support Mount Sinai Deliverance Temple through your generous giving. Help us reach the lost and serve our community." />
   
+  <!-- Social Meta Tags -->
+  <meta property="og:title" content="Give - Mount Sinai Deliverance Temple" />
+  <meta property="og:description" content="Support Mount Sinai Deliverance Temple through your generous giving. Help us reach the lost and serve our community." />
+  <meta property="og:image" content="assets/give.webp" />
+  <meta property="og:url" content="https://mtsinai.org/give.html" />
+  <meta property="og:type" content="website" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Give - Mount Sinai Deliverance Temple" />
+  <meta name="twitter:description" content="Support Mount Sinai Deliverance Temple through your generous giving. Help us reach the lost and serve our community." />
+  <meta name="twitter:image" content="assets/give.webp" />
+  
   <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="assets/favicon_io/site.webmanifest">
 <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="assets/give.webp" as="image" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,7 +43,7 @@
       <div class="flex justify-between h-16 items-center">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <img src="assets/mtsinai-logo.png" alt="Church Logo" class="h-10 w-auto" />
+          <img src="assets/mtsinai-logo.webp" alt="Church Logo" class="h-10 w-auto" width="40" height="40" />
           <span class="text-xl font-bold text-gray-900">MTSD</span>
         </div>
 
@@ -62,7 +78,16 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/give.jpg');">
+  <section class="relative h-screen overflow-hidden">
+    <img 
+      src="assets/give.webp" 
+      alt="Giving and generosity at Mount Sinai Deliverance Temple" 
+      class="absolute inset-0 w-full h-full object-cover"
+      width="1920"
+      height="1080"
+      priority
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
     <div class="absolute inset-0 flex items-center justify-center pt-20">
       <div class="text-center text-white px-4 max-w-4xl">
         <h1 class="text-4xl md:text-6xl font-bold font-playfair mb-6">Give</h1>
@@ -82,23 +107,23 @@
         <p class="text-lg text-gray-600">Your generosity helps us fulfill our mission to reach the lost at any cost</p>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Online Giving Card -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        
+        <!-- PayPal Giving Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i class="fas fa-credit-card text-white text-2xl"></i>
+            <i class="fab fa-paypal text-white text-2xl"></i>
           </div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-900">Online Giving</h3>
+          <h3 class="text-xl font-semibold mb-4 text-gray-900">PayPal Giving</h3>
           <p class="text-gray-600 mb-6">
-            Give securely online with your credit card, debit card, or bank transfer. Set up one-time or recurring donations.
-            <span class="block mt-2 text-sm text-gray-500">Secure checkout powered by Square.</span>
+            Give securely through PayPal to our church account.
+            <span class="block mt-3 font-medium text-gray-800 text-lg">Mt. Sinai Holiness Deliverance</span>
           </p>
-          <!-- TODO: Replace '#' with Square Checkout URL when available -->
-          <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block" target="_blank" rel="noopener noreferrer">
-            Give Online
+          <a href="https://www.paypal.com/paypalme/mtsinaihd" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block" target="_blank" rel="noopener noreferrer" aria-label="Give via PayPal">
+            Give via PayPal
           </a>
         </div>
-        
+
 <!-- Cash App Giving Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -113,6 +138,7 @@
             Give via Cash App
           </a>
         </div>        
+        
         <!-- In-Person Giving Card -->
         <div class="bg-white p-8 rounded-lg shadow-lg text-center border-l-4 border-blue-600">
           <div class="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -191,7 +217,7 @@
   </section>
 
   <!-- Scripture Section -->
-  <section class="py-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/worship.jpg');">
+  <section class="py-20 bg-cover bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/worship.webp'); background-position: center bottom;">
     <div class="max-w-6xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-8">Biblical Giving</h2>
       
@@ -225,9 +251,12 @@
         Thank you for being a faithful partner in ministry.
       </p>
       <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex justify-center">
-        <button class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg">
-          Give Now
-        </button>
+        <a href="https://www.paypal.com/paypalme/mtsinaihd" class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg inline-block" target="_blank" rel="noopener noreferrer">
+          Give via PayPal
+        </a>
+        <a href="https://cash.app/$jesus876" class="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold shadow-lg inline-block" target="_blank" rel="noopener noreferrer">
+          Give via Cash App
+        </a>
         <a href="contact.html" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-md hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-200 font-semibold inline-block">
           Questions About Giving?
         </a>
@@ -241,7 +270,7 @@
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="assets/mtsinai-logo.png" alt="Church Logo" class="h-8 w-auto" />
+            <img src="assets/mtsinai-logo.webp" alt="Church Logo" class="h-8 w-auto" width="32" height="32" />
             <span class="text-xl font-bold">MTSD</span>
           </div>
           <p class="text-gray-300">Mount Sinai Deliverance Temple - Reaching the lost at any cost through the gospel of Jesus Christ.</p>
