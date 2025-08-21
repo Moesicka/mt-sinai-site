@@ -1,25 +1,130 @@
-[build]
-  command = "npm run build"
-  publish = "."
+# Netlify config — static site served from repo root (no build step)
 
-# Pretty URLs and form handling redirects
+[build]
+  command = ""        # don't run any build
+  publish = "."       # serve files from the repo root
+
+############################################################
+# Security + perf headers (you can keep these as-is)
+############################################################
+
+# netlify.toml
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "no-referrer-when-downgrade"
+  # Allow cross-origin hosted fonts (cdnjs, Google Fonts)
+  Cross-Origin-Resource-Policy = "cross-origin"
+  # Strict but allows our external CSS/fonts
+  Content-Security-Policy = """
+    default-src 'self';
+    img-src 'self' data: https:;
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    connect-src 'self';
+    frame-ancestors 'self';
+  """
+
+# HTML: shorter cache
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Static assets: long cache
+[[headers]]  # webp
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]  # png
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]  # jpg
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]  # css
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]  # js
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+############################################################
+# Redirects (keep what you need)
+############################################################
+
+[[redirects]]  # pretty URLs
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/contact"
-  to   = "/contact.html"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
   status = 200
 
 [[redirects]]
   from = "/prayer"
-  to   = "/prayer.html"
+  to = "/prayer.html"
   status = 200
+
+[[redirects]]
+  from = "/prayer-request"
+  to = "/prayer.html"
+  status = 301
+
+[[redirects]]
+  from = "/give"
+  to = "/give.html"
+  status = 200
+
+[[redirects]]
+  from = "/giving"
+  to = "/give.html"
+  status = 301
+
+[[redirects]]
+  from = "/donate"
+  to = "/give.html"
+  status = 301
+
+[[redirects]]
+  from = "/donation"
+  to = "/give.html"
+  status = 301
 
 [[redirects]]
   from = "/thank-you"
-  to   = "/thank-you.html"
+  to = "/thank-you.html"
   status = 200
 
-# Catch-all for other pages
 [[redirects]]
-  from = "/*"
-  to   = "/index.html"
-  status = 404
+  from = "/thanks"
+  to = "/thank-you.html"
+  status = 301
+
+# Optional catch-all 404. Only keep if you actually have /404.html in root.
+# [[redirects]]
+#   from = "/*"
+#   to = "/404.html"
+#   status = 404

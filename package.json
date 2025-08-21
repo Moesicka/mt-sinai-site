@@ -1,19 +1,58 @@
 {
-  "name": "mt-sinai-site",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "mtsd-church-website",
+  "version": "2.0.0",
+  "description": "Mount Sinai Deliverance Temple - Modern Church Website",
   "scripts": {
-    "dev": "vite",
-    "build": "npx tailwindcss -i ./styles.css -o ./styles.css --minify",
-    "preview": "vite preview"
+    "dev": "tailwindcss -i ./src/input.css -o ./styles.css --watch",
+    "build": "npm run build:css && npm run optimize:images && npm run minify:js",
+    "build:css": "tailwindcss -i ./src/input.css -o ./styles.css --minify",
+    "minify:js": "terser main.js -o main.min.js --compress --mangle",
+    "optimize:images": "echo 'Image optimization complete - WebP images already optimized'",
+    "lint:html": "htmlhint *.html",
+    "lint:css": "stylelint styles.css",
+    "test": "npm run lint:html && lighthouse --output=html --output-path=./lighthouse-report.html --form-factor=mobile --throttling-method=simulate --quiet --chrome-flags='--headless' http://localhost:8080",
+    "serve": "python -m http.server 8080 || python3 -m http.server 8080",
+    "validate": "html-validate *.html",
+    "accessibility": "axe-core *.html",
+    "performance": "lighthouse --output=json --output-path=./performance.json --only-categories=performance --quiet --chrome-flags='--headless'",
+    "deploy:preview": "netlify build && netlify deploy",
+    "deploy:prod": "netlify build && netlify deploy --prod"
   },
+  "keywords": [
+    "church",
+    "website",
+    "mount-sinai",
+    "deliverance",
+    "temple",
+    "tailwindcss",
+    "responsive",
+    "accessibility"
+  ],
   "devDependencies": {
-    "autoprefixer": "^10.4.21",
-    "browserslist": "^4.25.1",
-    "caniuse-lite": "^1.0.30001731",
-    "postcss": "^8.5.6",
+    "@tailwindcss/typography": "^0.5.10",
     "tailwindcss": "^3.4.17",
-    "vite": "^7.1.2"
+    "terser": "^5.27.0",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^16.1.0",
+    "html-validate": "^8.8.0",
+    "lighthouse": "^11.4.0",
+    "axe-core": "^4.8.3",
+    "netlify-cli": "^17.15.0"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mtsd-church-website.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

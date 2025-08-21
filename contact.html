@@ -3,31 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Mount Sinai Deliverance Temple in Fuquay-Varina, NC. Get directions, service times, and reach out to us." />
-  
-  <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
-<link rel="manifest" href="assets/favicon_io/site.webmanifest">
-<link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
 
-  <!-- Fonts -->
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Contact Mount Sinai Deliverance Temple in Fuquay-Varina, NC. Get directions, service times, and reach out to us." />
+  <meta property="og:title" content="Contact Us - Mount Sinai Deliverance Temple" />
+  <meta property="og:image" content="assets/og-1200x630.png" />
+  <meta property="og:description" content="Get in touch with our church family. We'd love to hear from you." />
+  <meta property="og:url" content="https://mtsdmain.com/contact.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/og-1200x630.png" />
+
+  <!-- Favicon and Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+  <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
+
+  <!-- Critical Resource Preloads -->
+  <link rel="preload" href="assets/contact-us.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/mtsinai-logo.webp" as="image" />
+  
+  <!-- Font Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Custom Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+<!-- Font Awesome (unify across all pages) -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Tailwind CSS -->
   <link rel="stylesheet" href="styles.css" />
 
-  <title>Contact Us - MTSD</title>
+  <title>Contact Us - MTSD - Mount Sinai Deliverance Temple</title>
 </head>
 
 <body class="font-inter text-gray-900">
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
         <!-- Logo -->
         <div class="flex items-center space-x-3">
-          <img src="assets/mtsinai-logo.png" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" />
+          <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" width="40" height="40" />
           <span class="text-xl font-bold text-gray-900">MTSD</span>
         </div>
 
@@ -36,26 +58,30 @@
           <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
           <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
           
-          <!-- Contact Dropdown - Fixed Version -->
-          <div class="relative" id="contact-dropdown">
-            <button 
-              class="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors focus:outline-none" 
-              id="contact-button"
-              aria-expanded="false"
-            >
-              Contact <i class="fas fa-chevron-down text-xs transition-transform" id="contact-chevron"></i>
-            </button>
-            <div 
-              class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-40 border left-0 top-full" 
-              id="contact-menu"
-            >
-              <a href="contact.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Contact Us</a>
-              <a href="prayer.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Prayer Request</a>
-            </div>
-          </div>
-          
+<!-- Contact (link) + Chevron (dropdown) -->
+<div class="relative flex items-center gap-1" id="contact-dropdown">
+  <a href="contact.html"
+     class="text-gray-700 hover:text-blue-600 transition-colors"
+     aria-label="Go to Contact page">
+    Contact
+  </a>
+  <button
+    class="p-1 text-gray-700 hover:text-blue-600 transition-transform focus:outline-none"
+    id="contact-button" aria-expanded="false" aria-label="Open contact menu">
+    <svg class="w-3 h-3 transition-transform" id="contact-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M7 10l5 5 5-5z"/>
+    </svg>
+  </button>
+  <div class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-40 border left-0 top-full z-50" id="contact-menu">
+    <a href="contact.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Contact Us</a>
+    <a href="prayer.html"  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Prayer Request</a>
+  </div>
+</div>
           <a href="give.html" class="text-gray-700 hover:text-blue-600 transition-colors">Give</a>
         </div>
+      </div>
+    </div>
+
 
         <!-- Mobile Menu Button -->
         <div class="md:hidden">
@@ -78,13 +104,13 @@
         <div class="py-2">
           <button 
             id="mobile-contact-btn" 
-            class="flex items-center justify-between w-full text-gray-700 hover:text-blue-600 focus:outline-none"
+            class="flex items-center justify-between w-full text-blue-600 font-semibold focus:outline-none"
           >
             <span>Contact</span>
-            <i class="fas fa-chevron-down text-xs transition-transform" id="mobile-contact-chevron"></i>
+            <svg class="w-3 h-3 transition-transform" id="mobile-contact-chevron" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
           </button>
           <div id="mobile-contact-menu" class="hidden pl-4 mt-2 space-y-1">
-            <a href="contact.html" class="block py-2 text-gray-600 hover:text-blue-600">Contact Us</a>
+            <a href="contact.html" class="block py-2 text-blue-600 font-semibold">Contact Us</a>
             <a href="prayer.html" class="block py-2 text-gray-600 hover:text-blue-600">Prayer Request</a>
           </div>
         </div>
@@ -95,9 +121,24 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="relative h-screen bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/contact-us.jpg');">
+  <section class="relative h-screen overflow-hidden">
+    <!-- Hero Image - Now as IMG for better LCP -->
+    <img 
+      src="assets/contact-us.webp" 
+      alt="Church contact and community" 
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      width="1920" 
+      height="1080"
+      priority
+      fetchpriority="high"
+    />
+    
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    
+    <!-- Hero Content -->
     <div class="absolute inset-0 flex items-center justify-center pt-20">
-      <div class="text-center text-white px-4 max-w-4xl">
+      <div class="text-center text-white px-4 max-w-4xl relative z-10">
         <h1 class="text-4xl md:text-6xl font-bold font-playfair mb-6">Contact Us</h1>
         <p class="text-xl md:text-2xl font-light italic opacity-90">
           "Come unto me, all ye that labour and are heavy laden, and I will give you rest."
@@ -107,101 +148,103 @@
     </div>
   </section>
 
-<section class="py-16 bg-gray-50">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4">Contact Us</h2>
-      <p class="text-lg text-gray-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+  <!-- Contact Form Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+        <p class="text-lg text-gray-600">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden" aria-hidden="true">
+            <label>Don't fill this out if you're human:
+              <input name="bot-field" tabindex="-1" autocomplete="off">
+            </label>
+          </p>
+
+          <!-- First/Last Name -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+              <input id="firstName" name="firstName" type="text" required aria-required="true" autocomplete="given-name"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+            </div>
+            <div>
+              <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+              <input id="lastName" name="lastName" type="text" required aria-required="true" autocomplete="family-name"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+            </div>
+          </div>
+
+          <!-- Email/Phone -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+              <input id="email" name="email" type="email" required aria-required="true" autocomplete="email"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                     class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
+            </div>
+          </div>
+
+          <!-- Subject -->
+          <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
+            <select id="subject" name="subject" required aria-required="true"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
+              <option value="">Please select a subject</option>
+              <option value="general-inquiry">General Inquiry</option>
+              <option value="visit">Planning a Visit</option>
+              <option value="membership">Church Membership</option>
+              <option value="prayer-request">Prayer Request</option>
+              <option value="bible-study">Bible Study Information</option>
+              <option value="volunteer">Volunteer Opportunities</option>
+              <option value="pastoral-care">Pastoral Care</option>
+              <option value="events">Events & Programs</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+            <textarea id="message" name="message" rows="6" required aria-required="true"
+                      class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"></textarea>
+          </div>
+
+          <div class="text-center pt-4">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-md shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:scale-105 transition-all duration-200">
+              Send Message
+            </button>
+          </div>
+
+          <div class="text-center pt-2">
+            <p class="text-sm text-gray-500">* Required fields. We'll respond to your message within 24-48 hours.</p>
+          </div>
+        </form>
+      </div>
     </div>
+  </section>
 
-    <div class="bg-white rounded-lg shadow-lg p-8">
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" class="space-y-6">
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden" aria-hidden="true">
-          <label>Don't fill this out if you're human:
-            <input name="bot-field" tabindex="-1" autocomplete="off">
-          </label>
-        </p>
+  <!-- Hidden form for Netlify detection fallback -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+  </form>
 
-        <!-- first/last -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-            <input id="firstName" name="firstName" type="text" required aria-required="true" autocomplete="given-name"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
-          </div>
-          <div>
-            <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-            <input id="lastName" name="lastName" type="text" required aria-required="true" autocomplete="family-name"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
-          </div>
-        </div>
-
-        <!-- email/phone -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-            <input id="email" name="email" type="email" required aria-required="true" autocomplete="email"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
-          </div>
-          <div>
-            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
-            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
-                   class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors" />
-          </div>
-        </div>
-
-        <!-- subject -->
-        <div>
-          <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject *</label>
-          <select id="subject" name="subject" required aria-required="true"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors bg-white">
-            <option value="">Please select a subject</option>
-            <option value="general-inquiry">General Inquiry</option>
-            <option value="visit">Planning a Visit</option>
-            <option value="membership">Church Membership</option>
-            <option value="prayer-request">Prayer Request</option>
-            <option value="bible-study">Bible Study Information</option>
-            <option value="volunteer">Volunteer Opportunities</option>
-            <option value="pastoral-care">Pastoral Care</option>
-            <option value="events">Events & Programs</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <!-- message -->
-        <div>
-          <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message *</label>
-          <textarea id="message" name="message" rows="6" required aria-required="true"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-vertical"></textarea>
-        </div>
-
-        <div class="text-center pt-4">
-          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-md shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Send Message
-          </button>
-        </div>
-
-        <div class="text-center pt-2">
-          <p class="text-sm text-gray-500">* Required fields. We'll respond to your message within 24-48 hours.</p>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Hidden form for Netlify detection fallback -->
-<form name="contact" netlify netlify-honeypot="bot-field" hidden>
-  <input type="text" name="firstName" />
-  <input type="text" name="lastName" />
-  <input type="email" name="email" />
-  <input type="tel" name="phone" />
-  <input type="text" name="subject" />
-  <textarea name="message"></textarea>
-</form>
-
-<!-- Weekly Schedule -->
-  <section class="py-20 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/service.jpg');">
+  <!-- Weekly Schedule Section -->
+  <section class="py-20 bg-cover bg-center bg-fixed relative" 
+           style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/service.webp');">
     <div class="max-w-6xl mx-auto px-4 text-center text-white">
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Weekly Schedule</h2>
       <p class="text-xl font-light mb-16">Join us for worship and fellowship</p>
@@ -221,6 +264,7 @@
           <h3 class="text-xl font-semibold mb-3">Prayer Meeting</h3>
           <p class="text-lg mb-2">8:00 PM</p>
           <p class="text-sm opacity-80">Mondays</p>
+          <p class="text-xs opacity-60 mt-1">Call: 508-924-2145</p>
         </div>
         <div class="bg-blue-600 bg-opacity-20 backdrop-blur-sm p-6 rounded-lg border border-blue-300">
           <h3 class="text-xl font-semibold mb-3">Bible Class</h3>
@@ -232,15 +276,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4">
+  <footer class="bg-gray-900 text-white py-12 relative">
+    <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="assets/mtsinai-logo.png" alt="Church Logo" class="h-8 w-auto" />
+            <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" width="32" height="32" />
             <span class="text-xl font-bold">MTSD</span>
           </div>
-          <p class="text-gray-300">Mount Sinai Deliverance Temple - Reaching the lost at any cost through the gospel of Jesus Christ.</p>
+          <p class="text-gray-300 leading-relaxed">
+            Mount Sinai Deliverance Temple - Reaching the lost at any cost through preaching and teaching the gospel of Jesus Christ.
+          </p>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
@@ -258,20 +304,39 @@
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
           <div class="space-y-2">
-            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors">About Us</a>
-            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
-            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Prayer Request</a>
-            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Give</a>
+            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Contact</a>
+            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Prayer Request</a>
+            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Give</a>
           </div>
         </div>
       </div>
       
-      <div class="border-t border-gray-700 pt-8 text-center">
-        <p class="text-gray-400 text-sm">&copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.</p>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.
+        </p>
+        
+        <!-- Social Media Links -->
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-x-twitter text-xl"></i>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-tiktok text-xl"></i>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- Load main.js for navigation functionality -->
+  <script src="main.js" defer></script>
 </body>
 </html>
