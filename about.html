@@ -56,7 +56,103 @@
 </head>
 
 <body class="font-inter text-gray-900">
-  
+<nav role="navigation" aria-label="Main"
+     class="fixed top-0 left-0 right-0 bg-white shadow-lg z-50 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity" aria-label="Go to homepage">
+        <img src="assets/mtsinai-logo.webp" alt="Mount Sinai Deliverance Temple logo" class="h-10 w-auto" width="40" height="40">
+        <span class="hidden sm:block text-xl font-bold text-gray-900 font-playfair">MTSD</span>
+        <span class="sm:hidden text-lg font-bold text-gray-900 font-playfair">MTSD</span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">Home</a>
+        <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">About</a>
+
+<div id="contact-desktop" class="relative">
+  <button id="contact-toggle"
+          class="flex items-center text-gray-700 hover:text-blue-600 font-medium transition-colors"
+          aria-haspopup="menu" aria-expanded="false" aria-controls="contact-menu">
+    Contact
+    <svg id="contact-chevron"
+         class="ml-1 h-4 w-4 transition-transform"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <!-- Menu - FIXED: Changed from left-0 to right-0 for proper alignment -->
+  <div id="contact-menu"
+       class="hidden absolute right-0 mt-2 w-48 whitespace-nowrap
+              rounded-md bg-white shadow-xl ring-1 ring-gray-900/5 border border-gray-100 z-50">
+    <a href="contact.html"
+       class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+      Contact Us
+    </a>
+    <a href="prayer.html"
+       class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+      Prayer Request
+    </a>
+  </div>
+</div>        
+
+<!-- Give (desktop) – plain link for consistency -->
+        <a href="give.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium transition-colors">Give</a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="nav-toggle"
+              class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+              aria-controls="nav-mobile" aria-expanded="false" aria-label="Open main menu">
+        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="nav-mobile" class="md:hidden hidden">
+    <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 shadow-lg">
+      <a href="index.html" class="nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium">Home</a>
+      <a href="about.html" class="nav-link block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium">About</a>
+
+<!-- Contact accordion (mobile) - FIXED CHEVRON SIZE -->
+<div class="py-1">
+  <button id="mobile-contact-toggle"
+          class="w-full flex items-center justify-between px-3 py-2 text-gray-700
+                 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium"
+          aria-controls="mobile-contact-menu" aria-expanded="false">
+    <span>Contact</span>
+    <!-- FIXED: More specific sizing and positioning for chevron -->
+    <svg id="mobile-contact-chevron" 
+         class="w-4 h-4 ml-2 transition-transform flex-shrink-0" 
+         style="min-width: 16px; max-width: 16px; min-height: 16px; max-height: 16px;"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 9l-7 7-7-7"/>
+    </svg>
+  </button>
+  <div id="mobile-contact-menu" class="hidden pl-3 mt-1 space-y-1">
+    <a href="contact.html"
+       class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md whitespace-nowrap">
+      Contact Us
+    </a>
+    <a href="prayer.html"
+       class="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-md whitespace-nowrap">
+      Prayer Request
+    </a>
+  </div>
+</div>
+<!-- Give (mobile) - FIXED STYLING TO MATCH OTHER NAV ITEMS -->
+<a href="give.html"
+   class="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-md font-medium">
+  Give
+</a>
+</nav>
 
   <!-- Hero Section -->
   <section class="relative h-screen overflow-hidden">

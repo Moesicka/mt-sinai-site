@@ -1,5 +1,5 @@
 // main.js - Enhanced Navigation and UI functionality with better performance
-// Version 2.1 - Lazy-loading removed for simplicity
+// Version 2.2 - Fixed to match actual HTML element IDs
 
 (function() {
   'use strict';
@@ -20,15 +20,15 @@
     };
   }
 
-  // Initialize DOM element cache
+  // Initialize DOM element cache - FIXED TO MATCH YOUR HTML
   function cacheElements() {
-    elements.menuBtn = document.getElementById('menu-btn');
-    elements.mobileMenu = document.getElementById('mobile-menu');
-    elements.contactDropdown = document.getElementById('contact-dropdown');
-    elements.contactButton = document.getElementById('contact-button');
+    elements.menuBtn = document.getElementById('nav-toggle'); // Fixed ID
+    elements.mobileMenu = document.getElementById('nav-mobile'); // Fixed ID
+    elements.contactDropdown = document.getElementById('contact-desktop'); // Fixed ID
+    elements.contactButton = document.getElementById('contact-toggle'); // Fixed ID
     elements.contactMenu = document.getElementById('contact-menu');
     elements.contactChevron = document.getElementById('contact-chevron');
-    elements.mobileContactBtn = document.getElementById('mobile-contact-btn');
+    elements.mobileContactBtn = document.getElementById('mobile-contact-toggle'); // Fixed ID
     elements.mobileContactMenu = document.getElementById('mobile-contact-menu');
     elements.mobileContactChevron = document.getElementById('mobile-contact-chevron');
   }
@@ -44,33 +44,14 @@
       // Update ARIA attributes for accessibility
       const isExpanded = !elements.mobileMenu.classList.contains('hidden');
       elements.menuBtn.setAttribute('aria-expanded', isExpanded);
+      
+      console.log('Mobile menu toggled:', isExpanded); // Debug
     });
   }
 
-  // Desktop contact dropdown functionality
+  // Desktop contact dropdown functionality - SIMPLIFIED
   function initializeDesktopDropdown() {
-    if (!elements.contactDropdown || !elements.contactButton || 
-        !elements.contactMenu || !elements.contactChevron) return;
-    
-    let dropdownTimeout;
-    
-    function showDropdown() {
-      clearTimeout(dropdownTimeout);
-      elements.contactMenu.classList.remove('hidden');
-      elements.contactChevron.style.transform = 'rotate(180deg)';
-      elements.contactButton.setAttribute('aria-expanded', 'true');
-    }
-    
-    function hideDropdown() {
-      dropdownTimeout = setTimeout(() => {
-        elements.contactMenu.classList.add('hidden');
-        elements.contactChevron.style.transform = 'rotate(0deg)';
-        elements.contactButton.setAttribute('aria-expanded', 'false');
-      }, 150);
-    }
-    
-    elements.contactDropdown.addEventListener('mouseenter', showDropdown);
-    elements.contactDropdown.addEventListener('mouseleave', hideDropdown);
+    if (!elements.contactButton || !elements.contactMenu) return;
     
     elements.contactButton.addEventListener('click', function(e) {
       e.preventDefault();
@@ -78,20 +59,17 @@
       
       const isHidden = elements.contactMenu.classList.contains('hidden');
       if (isHidden) {
-        showDropdown();
+        // Remove both hidden class and CSS-based visibility
+        elements.contactMenu.classList.remove('hidden');
+        elements.contactMenu.style.opacity = '1';
+        elements.contactMenu.style.visibility = 'visible';
+        elements.contactButton.setAttribute('aria-expanded', 'true');
       } else {
-        clearTimeout(dropdownTimeout);
-        hideDropdown();
-      }
-    });
-
-    elements.contactButton.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        elements.contactButton.click();
-      } else if (e.key === 'Escape') {
-        hideDropdown();
-        elements.contactButton.focus();
+        // Add hidden class and reset CSS-based visibility  
+        elements.contactMenu.classList.add('hidden');
+        elements.contactMenu.style.opacity = '0';
+        elements.contactMenu.style.visibility = 'invisible';
+        elements.contactButton.setAttribute('aria-expanded', 'false');
       }
     });
   }
@@ -116,14 +94,17 @@
   // Enhanced outside click handling
   function initializeOutsideClick() {
     const debouncedOutsideClick = debounce(function(e) {
+      // Close desktop contact dropdown
       if (elements.contactDropdown && !elements.contactDropdown.contains(e.target)) {
-        if (elements.contactMenu && elements.contactChevron && elements.contactButton) {
+        if (elements.contactMenu && elements.contactButton) {
           elements.contactMenu.classList.add('hidden');
-          elements.contactChevron.style.transform = 'rotate(0deg)';
+          elements.contactMenu.style.opacity = '0';
+          elements.contactMenu.style.visibility = 'invisible';
           elements.contactButton.setAttribute('aria-expanded', 'false');
         }
       }
       
+      // Close mobile menu
       if (elements.mobileMenu && elements.menuBtn && 
           !elements.mobileMenu.contains(e.target) && 
           !elements.menuBtn.contains(e.target)) {
@@ -194,6 +175,19 @@
     });
   }
 
+  // Current-page highlight
+  function initializePageHighlight() {
+    const page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('nav a[href]').forEach(a => {
+      const href = a.getAttribute('href')?.toLowerCase();
+      if (href === page || (page === '' && href === 'index.html')) {
+        a.classList.add('text-blue-600','font-semibold');
+        a.classList.remove('text-gray-700');
+        a.setAttribute('aria-current','page');
+      }
+    });
+  }
+
   // Performance monitoring (optional)
   function initializePerformanceMonitoring() {
     if ('performance' in window && 'mark' in performance) {
@@ -220,9 +214,11 @@
     initializeOutsideClick();
     initializeSmoothScrolling();
     initializeFormEnhancements();
+    initializePageHighlight();
     initializePerformanceMonitoring();
     
     document.body.classList.add('js-ready');
+    console.log('Navigation initialized with correct IDs'); // Debug
   }
 
   if (document.readyState === 'loading') {
@@ -231,11 +227,19 @@
     init();
   }
 
-  document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-      document.body.classList.add('page-hidden');
-    } else {
-      document.body.classList.remove('page-hidden');
+  // Handle escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      if (elements.contactMenu) {
+        elements.contactMenu.classList.add('hidden');
+        elements.contactMenu.style.opacity = '0';
+        elements.contactMenu.style.visibility = 'invisible';
+        if (elements.contactButton) elements.contactButton.setAttribute('aria-expanded', 'false');
+      }
+      if (elements.mobileMenu) {
+        elements.mobileMenu.classList.add('hidden');
+        if (elements.menuBtn) elements.menuBtn.setAttribute('aria-expanded', 'false');
+      }
     }
   });
 

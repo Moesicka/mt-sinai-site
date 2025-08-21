@@ -1,98 +1,93 @@
-// src/main.js
-
-// Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
+// main.js
+document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
+  const navToggle = document.getElementById('nav-toggle');
+  const navMobile = document.getElementById('nav-mobile');
+
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => {
+      const isHidden = navMobile.classList.toggle('hidden');
+      navToggle.setAttribute('aria-expanded', String(!isHidden));
     });
   }
 
   // Desktop contact dropdown
-  const contactDropdown = document.getElementById('contact-dropdown');
-  const contactButton = document.getElementById('contact-button');
-  const contactMenu = document.getElementById('contact-menu');
+  const contactDesktop = document.getElementById('contact-desktop');
+  const contactToggle  = document.getElementById('contact-toggle');
+  const contactMenu    = document.getElementById('contact-menu');
   const contactChevron = document.getElementById('contact-chevron');
-  
-  if (contactDropdown && contactButton && contactMenu && contactChevron) {
-    let dropdownTimeout;
-    
-    // Show dropdown on mouse enter
-    contactDropdown.addEventListener('mouseenter', function() {
-      clearTimeout(dropdownTimeout);
+
+  if (contactDesktop && contactToggle && contactMenu && contactChevron) {
+    let hideTimer;
+
+    const openMenu = () => {
+      clearTimeout(hideTimer);
       contactMenu.classList.remove('hidden');
       contactChevron.style.transform = 'rotate(180deg)';
-      contactButton.setAttribute('aria-expanded', 'true');
-    });
-    
-    // Hide dropdown on mouse leave with small delay
-    contactDropdown.addEventListener('mouseleave', function() {
-      dropdownTimeout = setTimeout(function() {
+      contactToggle.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+      hideTimer = setTimeout(() => {
         contactMenu.classList.add('hidden');
         contactChevron.style.transform = 'rotate(0deg)';
-        contactButton.setAttribute('aria-expanded', 'false');
+        contactToggle.setAttribute('aria-expanded', 'false');
       }, 100);
-    });
-    
-    // Also show/hide on click for better mobile support
-    contactButton.addEventListener('click', function(e) {
+    };
+
+    // Mouse users
+    contactDesktop.addEventListener('mouseenter', openMenu);
+    contactDesktop.addEventListener('mouseleave', closeMenu);
+
+    // Touch/click users
+    contactToggle.addEventListener('click', (e) => {
       e.preventDefault();
       const isHidden = contactMenu.classList.contains('hidden');
-      if (isHidden) {
-        contactMenu.classList.remove('hidden');
-        contactChevron.style.transform = 'rotate(180deg)';
-        contactButton.setAttribute('aria-expanded', 'true');
-      } else {
-        contactMenu.classList.add('hidden');
-        contactChevron.style.transform = 'rotate(0deg)';
-        contactButton.setAttribute('aria-expanded', 'false');
-      }
+      if (isHidden) openMenu(); else closeMenu();
     });
   }
 
-  // Mobile contact submenu toggle
-  const mobileContactBtn = document.getElementById('mobile-contact-btn');
-  const mobileContactMenu = document.getElementById('mobile-contact-menu');
+  // Mobile contact accordion
+  const mobileContactToggle  = document.getElementById('mobile-contact-toggle');
+  const mobileContactMenu    = document.getElementById('mobile-contact-menu');
   const mobileContactChevron = document.getElementById('mobile-contact-chevron');
-  
-  if (mobileContactBtn && mobileContactMenu && mobileContactChevron) {
-    mobileContactBtn.addEventListener('click', function(e) {
+
+  if (mobileContactToggle && mobileContactMenu && mobileContactChevron) {
+    mobileContactToggle.addEventListener('click', (e) => {
       e.preventDefault();
+      const willOpen = mobileContactMenu.classList.contains('hidden');
       mobileContactMenu.classList.toggle('hidden');
-      mobileContactChevron.classList.toggle('rotate-180');
+      mobileContactChevron.style.transform = willOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+      mobileContactToggle.setAttribute('aria-expanded', String(willOpen));
     });
   }
 
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function(e) {
-    if (contactDropdown && !contactDropdown.contains(e.target)) {
-      if (contactMenu && contactChevron && contactButton) {
+  // Close menus when clicking outside
+  document.addEventListener('click', (e) => {
+    // desktop dropdown
+    if (contactDesktop && !contactDesktop.contains(e.target)) {
+      if (contactMenu && !contactMenu.classList.contains('hidden')) {
         contactMenu.classList.add('hidden');
-        contactChevron.style.transform = 'rotate(0deg)';
-        contactButton.setAttribute('aria-expanded', 'false');
+        contactChevron && (contactChevron.style.transform = 'rotate(0deg)');
+        contactToggle && contactToggle.setAttribute('aria-expanded', 'false');
       }
     }
-    
-    if (mobileMenu && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
+    // mobile menu
+    if (navMobile && !navMobile.classList.contains('hidden') &&
+        !e.composedPath().includes(navMobile) &&
+        !e.composedPath().includes(navToggle)) {
+      navMobile.classList.add('hidden');
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
     }
   });
 
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
+  // Highlight active nav link (works for file:// and normal hosting)
+  const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  document.querySelectorAll('nav a[href]').forEach(a => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href === current) {
+      a.classList.add('text-blue-600', 'font-semibold');
+      a.setAttribute('aria-current', 'page');
+    }
   });
 });
