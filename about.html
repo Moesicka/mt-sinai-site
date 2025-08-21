@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <!-- SEO & Social Meta -->
   <meta name="description" content="Learn about the leadership, mission, and heart of Mount Sinai Deliverance Temple in Fuquay-Varina, NC." />
   <meta property="og:title" content="About Us - Mount Sinai Deliverance Temple" />
@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://mtsdmain.com/about.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="assets/og-1200x630.png" />
-
+  
   <!-- Favicon and Icons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
@@ -20,35 +20,29 @@
   <link rel="manifest" href="assets/favicon_io/site.webmanifest">
   <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
 
-  <!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome CDN - EARLY LOADING -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Critical Resource Preloads -->
   <link rel="preload" href="assets/joinhands.webp" as="image" fetchpriority="high" />
-
   <link rel="preload" href="assets/mtsinai-logo.webp" as="image" />
-
+  
   <!-- Font Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <!-- Custom Fonts - System font fallback for better FCP -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="styles.css" />
 
   <title>About Us - MTSD - Mount Sinai Deliverance Temple</title>
-  <!-- Inline SVG Icons (replacing Font Awesome for better performance) -->
+  
+  <!-- Custom Styles - Font fallbacks only -->
+
   <style>
-    .icon-heart { width: 24px; height: 24px; }
-    .icon-book { width: 24px; height: 24px; }
-    .icon-pray { width: 24px; height: 24px; }
-    .icon-chevron { width: 12px; height: 12px; }
-    .icon-phone { width: 16px; height: 16px; }
-    .icon-location { width: 16px; height: 16px; }
-    .icon-facebook { width: 20px; height: 20px; }
-    .icon-instagram { width: 20px; height: 20px; }
-    .icon-twitter { width: 20px; height: 20px; }
-    .icon-tiktok { width: 20px; height: 20px; }
+
     /* Use system fonts for body, Playfair only for headings */
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
