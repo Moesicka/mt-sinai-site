@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
 
   <!-- Critical Resource Preloads -->
-  <link rel="preload" href="assets/prayer.webp" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/prayer.webp" as="image" />
   <link rel="preload" href="assets/mtsinai-logo.webp" as="image" />
   
   <!-- Font Preconnect for Performance -->
@@ -31,8 +31,10 @@
   <!-- Custom Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <!-- Font Awesome (unify across all pages) -->
+ <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <!-- Tailwind CSS -->
   <link rel="stylesheet" href="styles.css" />
@@ -41,78 +43,7 @@
 </head>
 
 <body class="font-inter text-gray-900">
-  <!-- Navigation Bar -->
-  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-          <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-10 w-auto" width="40" height="40" />
-          <span class="text-xl font-bold text-gray-900">MTSD</span>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8 items-center">
-          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-          <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-          
-          <!-- Contact Dropdown -->
-          <div class="relative" id="contact-dropdown">
-            <button 
-              class="flex items-center gap-1 text-blue-600 font-semibold hover:text-blue-700 transition-colors focus:outline-none" 
-              id="contact-button"
-              aria-expanded="false"
-            >
-              Contact <i class="fas fa-chevron-down text-xs transition-transform" id="contact-chevron"></i>
-            </button>
-            <div 
-              class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-40 border left-0 top-full" 
-              id="contact-menu"
-            >
-              <a href="contact.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Contact Us</a>
-              <a href="prayer.html" class="block px-4 py-2 text-sm text-blue-600 font-semibold hover:bg-gray-50">Prayer Request</a>
-            </div>
-          </div>
-          
-          <a href="give.html" class="text-gray-700 hover:text-blue-600 transition-colors">Give</a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-gray-700 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-      <div class="px-4 py-2 space-y-1">
-        <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-        <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
-        
-        <!-- Mobile Contact Section -->
-        <div class="py-2">
-          <button 
-            id="mobile-contact-btn" 
-            class="flex items-center justify-between w-full text-blue-600 font-semibold hover:text-blue-700 focus:outline-none"
-          >
-            <span>Contact</span>
-            <i class="fas fa-chevron-down text-xs transition-transform" id="mobile-contact-chevron"></i>
-          </button>
-          <div id="mobile-contact-menu" class="pl-4 mt-2 space-y-1">
-            <a href="contact.html" class="block py-2 text-gray-600 hover:text-blue-600">Contact Us</a>
-            <a href="prayer.html" class="block py-2 text-blue-600 font-semibold">Prayer Request</a>
-          </div>
-        </div>
-        
-        <a href="give.html" class="block py-2 text-gray-700 hover:text-blue-600">Give</a>
-      </div>
-    </div>
-  </nav>
+  
 
   <!-- Hero Section -->
   <section class="relative h-screen overflow-hidden">
@@ -431,6 +362,6 @@
   </footer>
 
   <!-- Load main.js for navigation functionality -->
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

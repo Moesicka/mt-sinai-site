@@ -30,7 +30,10 @@
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!-- Font Awesome (unify across all pages) -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="styles.css" />
 
   <title>Give - MTSD</title>
@@ -38,44 +41,7 @@
 
 <body class="font-inter text-gray-900">
   <!-- Navigation -->
-  <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-          <img src="assets/mtsinai-logo.webp" alt="Church Logo" class="h-10 w-auto" width="40" height="40" />
-          <span class="text-xl font-bold text-gray-900">MTSD</span>
-        </div>
-
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex space-x-8 items-center">
-          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-          <a href="about.html" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
-          <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
-          <a href="give.html" class="text-blue-600 font-semibold">Give</a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-gray-700">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-      <div class="px-4 py-2 space-y-1">
-        <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
-        <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
-        <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
-        <a href="give.html" class="block py-2 text-blue-600 font-semibold">Give</a>
-      </div>
-    </div>
-  </nav>
+  
 
   <!-- Hero Section -->
   <section class="relative h-screen overflow-hidden">
@@ -333,6 +299,6 @@
   </footer>
 
   <!-- Load main.js for navigation functionality -->
-  <script src="main.js"></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
