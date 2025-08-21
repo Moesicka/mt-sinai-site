@@ -124,8 +124,8 @@
     <span class="block mt-3 font-medium text-gray-800 text-lg">mtsdmain@gmail.com</span>
   </p>
 
-  <!-- Email-based PayPal donate link -->
-<a href="https://www.paypal.com/donate?business=mtsdmain%40gmail.com&item_name=Mount+Sinai+Deliverance+Temple+Donation&currency_code=USD">
+  <!-- Email-based PayPal donate link - FIXED -->
+  <a href="https://www.paypal.com/donate?business=mtsdmain%40gmail.com&item_name=Mount+Sinai+Deliverance+Temple+Donation&currency_code=USD"
      class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 font-semibold inline-block"
      target="_blank" rel="noopener noreferrer"
      aria-label="Donate via PayPal">
@@ -272,15 +272,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-6xl mx-auto px-4">
+  <footer class="bg-gray-900 text-white py-12 relative">
+    <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
       <div class="grid md:grid-cols-3 gap-8 mb-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="assets/mtsinai-logo.webp" alt="Church Logo" class="h-8 w-auto" width="32" height="32" />
+            <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" width="32" height="32" />
             <span class="text-xl font-bold">MTSD</span>
           </div>
-          <p class="text-gray-300">Mount Sinai Deliverance Temple - Reaching the lost at any cost through preaching and teaching the gospel of Jesus Christ.</p>
+          <p class="text-gray-300 leading-relaxed">
+            Mount Sinai Deliverance Temple - Reaching the lost at any cost through preaching and teaching the gospel of Jesus Christ.
+          </p>
         </div>
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
@@ -298,20 +300,39 @@
         <div>
           <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
           <div class="space-y-2">
-            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors">About Us</a>
-            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
-            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Prayer Request</a>
-            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors">Give</a>
+            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Contact</a>
+            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Prayer Request</a>
+            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Give</a>
           </div>
         </div>
       </div>
       
-      <div class="border-t border-gray-700 pt-8 text-center">
-        <p class="text-gray-400 text-sm">&copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.</p>
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.
+        </p>
+        
+        <!-- Social Media Links -->
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-x-twitter text-xl"></i>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-tiktok text-xl"></i>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
 
+  <!-- Load main.js for navigation functionality -->
   <script src="main.js"></script>
 </body>
 </html>

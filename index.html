@@ -20,6 +20,9 @@
   <link rel="manifest" href="assets/favicon_io/site.webmanifest">
   <link rel="shortcut icon" href="assets/favicon_io/favicon.ico">
 
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- Critical Resource Preloads -->
   <link rel="preload" href="assets/cross.webp" as="image" fetchpriority="high" />
   <link rel="preload" href="assets/mtsinai-logo.webp" as="image" />
@@ -329,78 +332,68 @@
     </div>
   </section>
 
-<!-- Footer (drop-in replacement) -->
-<footer class="bg-gray-900 text-white py-12 relative">
-  <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <!-- Column 1: Brand blurb -->
-      <div>
-        <div class="flex items-center space-x-3 mb-4">
-          <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" width="32" height="32" />
-          <span class="text-xl font-bold">MTSD</span>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12 relative">
+    <div class="max-w-6xl mx-auto px-4 relative z-10 pt-8">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="assets/mtsinai-logo.webp" alt="Church Logo" onerror="this.style.display='none';" class="h-8 w-auto" width="32" height="32" />
+            <span class="text-xl font-bold">MTSD</span>
+          </div>
+          <p class="text-gray-300 leading-relaxed">
+            Mount Sinai Deliverance Temple - Reaching the lost at any cost through preaching and teaching the gospel of Jesus Christ.
+          </p>
         </div>
-        <p class="text-gray-300 leading-relaxed">
-          Mount Sinai Deliverance Temple — Reaching the lost at any cost through preaching and teaching the gospel of Jesus Christ.
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
+          <div class="space-y-3 text-gray-300">
+            <p class="flex items-start">
+              <i class="fas fa-map-marker-alt mr-3 mt-1 text-blue-400"></i>
+              <span>1406 Wilbur Jones Road<br>Fuquay-Varina, NC 27526</span>
+            </p>
+            <p class="flex items-center">
+              <i class="fas fa-phone mr-3 text-blue-400"></i>
+              <span>Prayer Line: 919-219-0022</span>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
+          <div class="space-y-2">
+            <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
+            <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Contact</a>
+            <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Prayer Request</a>
+            <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Give</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          &copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.
         </p>
-      </div>
-
-      <!-- Column 2: Contact Info (no duplicates, inline SVGs) -->
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-blue-400">Contact Info</h4>
-        <div class="space-y-3 text-gray-300">
-          <p class="flex items-start">
-            <svg width="16" height="16" class="w-4 h-4 mr-3 mt-1 text-blue-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-            </svg>
-            <span>1406 Wilbur Jones Road<br>Fuquay-Varina, NC 27526</span>
-          </p>
-          <p class="flex items-center">
-            <svg width="16" height="16" class="w-4 h-4 mr-3 text-blue-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-            </svg>
-            <span>Prayer Line: 919-219-0022</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Column 3: Quick Links -->
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-blue-400">Quick Links</h4>
-        <div class="space-y-2">
-          <a href="about.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">About Us</a>
-          <a href="contact.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Contact</a>
-          <a href="prayer.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Prayer Request</a>
-          <a href="give.html" class="block text-gray-300 hover:text-blue-400 transition-colors duration-200 hover:translate-x-1 transform">Give</a>
+        
+        <!-- Social Media Links -->
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-x-twitter text-xl"></i>
+          </a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-gray-400 hover:text-blue-400 transition-colors duration-200 transform hover:scale-110">
+            <i class="fab fa-tiktok text-xl"></i>
+          </a>
         </div>
       </div>
     </div>
+  </footer>
 
-    <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-400 text-sm">&copy; 2025 Mount Sinai Deliverance Temple. All rights reserved.</p>
-
-      <!-- Social Media -->
-      <div class="flex space-x-4 mt-4 md:mt-0">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073C0 18.063 4.388 23.026 10.125 23.927v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 8.001a4 4 0 110 8 4 4 0 010-8z"/>
-          </svg>
-        </a>
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X" class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231z"/>
-          </svg>
-        </a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-gray-400 hover:text-blue-400 transition-transform duration-200 hover:scale-110">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</footer>
+  <!-- Load main.js for navigation functionality -->
+  <script src="main.js"></script>
+</body>
+</html>
