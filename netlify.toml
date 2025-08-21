@@ -8,17 +8,24 @@
 # Security + perf headers (you can keep these as-is)
 ############################################################
 
+# netlify.toml
 [[headers]]
-  for = "/*"
+for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    # Allow your fonts/css CDNs; scripts are inline/self only here
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; connect-src 'self';"
-    X-DNS-Prefetch-Control = "on"
-    Cache-Control = "public, max-age=31536000, immutable"
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "no-referrer-when-downgrade"
+  # Allow cross-origin hosted fonts (cdnjs, Google Fonts)
+  Cross-Origin-Resource-Policy = "cross-origin"
+  # Strict but allows our external CSS/fonts
+  Content-Security-Policy = """
+    default-src 'self';
+    img-src 'self' data: https:;
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    connect-src 'self';
+    frame-ancestors 'self';
+  """
 
 # HTML: shorter cache
 [[headers]]
